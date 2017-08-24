@@ -1,6 +1,6 @@
 {
   "name": "pg-tmp",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "ISC",
   "repository": "LinusU/node-pg-tmp",
   "scripts": {

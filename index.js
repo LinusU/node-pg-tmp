@@ -4,10 +4,10 @@ const url = require('url')
 
 const bin = path.join(__dirname, 'pg_tmp.sh')
 
-module.exports = function pgTmp (setEnvironment) {
+module.exports = function pgTmp (setEnvironment, opts = []) {
   setEnvironment = (setEnvironment == null ? true : setEnvironment)
 
-  return execa.stdout(bin).then((connection) => {
+  return execa.stdout(bin, opts).then((connection) => {
     const parsed = url.parse(connection, true)
 
     const result = {

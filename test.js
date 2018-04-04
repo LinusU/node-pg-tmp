@@ -42,6 +42,15 @@ describe('pg-tmp', function () {
     })
   })
 
+  it('should accept and pass additional parameters', () => {
+    return createDatabase(true, ['-t', '-w', '180']).then((result) => {
+      assert.strictEqual(result.host, undefined, 'host should be set')
+      assert.notStrictEqual(result.user, undefined, 'user should be set')
+      assert.strictEqual(result.password, '', 'password should be set')
+      assert.notStrictEqual(result.database, undefined, 'database should be set')
+    })
+  })
+
   it('should allow connections to the database', () => {
     return createDatabase().then(() => {
       const client = new pg.Client()

@@ -32,9 +32,9 @@ describe('My app', () => {
 
 ## API
 
-### `createDatabase([setEnvironment]) => Promise`
+### `createDatabase([options]) => Promise`
 
-Start a temporary database that will be cleaned up automatically after being used. If `setEnvironment` is either not provided, or set to true, the standard [postgresql environmental variables](https://www.postgresql.org/docs/9.1/static/libpq-envars.html) will be set so that you can connect directly without any additional config.
+Start a temporary database that will be cleaned up automatically after being used.
 
 Returns a `Promise` of a object with the following properties:
 
@@ -42,3 +42,13 @@ Returns a `Promise` of a object with the following properties:
 - `user` - The user to connect as, currently the name of the current user
 - `password` - The password to connect with, currently always an empty string
 - `database` - The database to connect to, currently always "test"
+
+#### `options.setEnvironment`
+
+If `setEnvironment` is either not provided, or set to true, the standard [postgresql environmental variables](https://www.postgresql.org/docs/9.1/static/libpq-envars.html) will be set so that you can connect directly without any additional config.
+
+#### `options.timeout`
+
+The database will be shut down and removed after the specified timeout (in seconds). If one or more clients are still connected then sleeps and retries again after the same interval.
+
+The default is 60 seconds.

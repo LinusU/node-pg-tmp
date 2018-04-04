@@ -25,7 +25,7 @@ describe('pg-tmp', function () {
   })
 
   it('should respect setEnvironment flag', () => {
-    return createDatabase(false).then(() => {
+    return createDatabase({ setEnvironment: false }).then(() => {
       assert.strictEqual(process.env.PGHOST, undefined, 'PGHOST should not be set')
       assert.strictEqual(process.env.PGUSER, undefined, 'PGUSER should not be set')
       assert.strictEqual(process.env.PGPASSWORD, undefined, 'PGPASSWORD should not be set')

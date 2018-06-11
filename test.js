@@ -50,6 +50,7 @@ describe('pg-tmp', function () {
         .then(() => client.connect())
         .then(() => client.query('SELECT 1 AS n'))
         .then((result) => assert.strictEqual(result.rows[0].n, 1))
+        .then(() => client.end())
     })
   })
 })

@@ -10,8 +10,8 @@
     "execa": "^0.8.0"
   },
   "devDependencies": {
-    "mocha": "^3.5.0",
-    "pg": "^7.2.0",
-    "standard": "^10.0.3"
+    "mocha": "^5.2.0",
+    "pg": "^7.4.3",
+    "standard": "^11.0.1"
   }
 }
